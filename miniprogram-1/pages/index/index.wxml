@@ -1,23 +1,12 @@
-<!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" />
+  <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab title="二楼小">
+      <van-card currency="时间：" price="8:00-10:00" desc="创建人：xxx" title="技术讨论会" thumb="{{ imageURL }}" />
+    </van-tab>
+    <van-tab title="二楼大">内容 列表</van-tab>
+    <van-tab title="二楼小">内容 列表</van-tab>
+    <van-tab title="二楼小">内容 列表</van-tab>
+    <van-tab title="五楼小">内容 列表</van-tab>
+  </van-tabs>
 </view>
